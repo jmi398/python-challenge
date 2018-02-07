@@ -15,8 +15,8 @@ with open(csv_path1, 'r', newline="") as csv_infile:
 
 # Output to txt file "Output.txt"
     text_file = open("Output.txt", "w")
-    text_file.write("Election Results")
-    text_file.write("-------------------------")
+    text_file.write("Election Results"+ '\n' )
+    text_file.write("-------------------------"+ '\n' )
 
 # Skip the header
     next(csvreader)
@@ -26,9 +26,9 @@ with open(csv_path1, 'r', newline="") as csv_infile:
 # Find the length of the list (total number of Voter ID's)    
 total_votes = len(csvreader)
 print("Total Votes:", total_votes)
-text_file.write("Total Votes:" + str(total_votes))
+text_file.write("Total Votes:" + str(total_votes) + '\n')
 print("-------------------------")
-text_file.write("-------------------------")
+text_file.write("-------------------------" + '\n')
     
 # Initialize empty list to hold names of candidates
 Candidates = []
@@ -55,16 +55,16 @@ for keys, votes in candidate_vote.items():
 
     out_str = str(keys) + ":" + str((votes/total_votes)*100) + "%" + "(" + str(votes) + ")"
     
-    text_file.write(out_str)
+    text_file.write(out_str + '\n')
 print("-------------------------")
-text_file.write("-------------------------")
+text_file.write("-------------------------" + '\n' )
 
 # Declare the winner by finding candidate with max votes
 winner = max(candidate_vote.values())
 for key, value in candidate_vote.items():
     if winner == value:
         print("Winner :" , key)
-        text_file.write("Winner :" + str(key))
+        text_file.write("Winner :" + str(key) + '\n')
 
 text_file.close()    
     
